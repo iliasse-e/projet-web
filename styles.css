@@ -1,0 +1,109 @@
+/**
+* Police et couleurs
+**/
+html {
+    background-color: #003809;
+    width: 100%;
+}
+
+h1, footer {
+    color: white;
+}
+
+/** Header **/
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+header img {
+    width: 150px;
+}
+
+section,
+aside, table {
+    background-color: #bfecc6;
+}
+
+h1 {
+    font-family: 'Satisfy', cursive;
+    text-align: center;
+    font-size: 3em;
+}
+
+/**
+* Cadre container
+**/
+
+#cadre-container {}
+
+section {
+    width: 150%;
+
+}
+
+/*section tableau*/
+
+table {
+    border-spacing: 1px;
+    border-collapse: collapse;
+}
+td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+
+main,
+footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+/**
+* Aside Temperatures
+**/
+
+aside {
+    vertical-align: middle;
+    text-align: center;
+    width: 20%;
+}
+
+article {
+    margin: 17% auto;
+}
+
+article * {
+    margin: 0 0 0px 0;
+    padding: 0;
+}
+
+article h2 {
+    font-size: 2em;
+}
+
+#min {
+    background-color: #2196f3;
+}
+
+#max {
+    background-color: #e86464;
+}
+
+#moy {
+    background-color: #FFFF00;
+}
+
+.cercle {
+    width: 70px;
+    height: 70px;
+    line-height: 60px;
+    border-radius: 50%;
+    font-size: 1, 5rem;
+    text-align: center;
+}
