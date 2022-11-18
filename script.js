@@ -7,19 +7,19 @@ import { ViewBuilder } from "./UI/view.js"
 const ville = "Nîmes";
 const insee = 30189;
 const httpWeatherRequest = new HttpWeatherRequest();
-let dataMeteo = httpWeatherRequest.get(insee, "forecast/daily").then(data => { dataMeteo = data})
-let dataEphemeride = httpWeatherRequest.get(insee, "ephemeride").then(data => { dataEphemeride = data});
 let viewBuilder;
 
-console.log(insee);
+console.log(document);
 
 // Get data
-Promise.all([httpWeatherRequest.get(insee, "forecast/daily"), httpWeatherRequest.get(insee, "ephemeride")])
+Promise.all([httpWeatherRequest.getWeather(insee), httpWeatherRequest.getEphemeride(insee), httpWeatherRequest.getWeatherThreeDays(insee)])
 .then(response => {
   console.log(response);
   // then build the page
-  viewBuilder = new ViewBuilder(response[0], response[1], document);
+  viewBuilder = new ViewBuilder(response[0], response[1], response[2], document);
   viewBuilder.buildEphemeride();
+  viewBuilder.buildTemperatures();
+  viewBuilder.buildTable();
 })
 
 

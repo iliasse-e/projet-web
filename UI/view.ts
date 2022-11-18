@@ -1,20 +1,30 @@
+import { EphemerideData, WeatherData, WeatherThreeDaysData } from "../service/enum";
+
+
 class ViewBuilder {
     private weatherData: WeatherData;
     private ephemerideData: EphemerideData;
+    private weatherThreeDaysData: WeatherThreeDaysData;
     private document: Document;
 
-    constructor(weatherData: WeatherData, ephemerideData: EphemerideData , document: Document) {
+    constructor(weatherData: WeatherData, ephemerideData: EphemerideData, weatherThreeDaysData: WeatherThreeDaysData , document: Document) {
         this.weatherData = weatherData;
         this.ephemerideData = ephemerideData;
+        this.weatherThreeDaysData = weatherThreeDaysData;
         this.document = document;
     }
 
     public buildTable(): void {
-        const container = this.document.getElementById("meteo_semaine");
+        const weatherCode = weatherCode[this.weatherThreeDaysData.forecast[0].weather]
+        this.document.querySelector("#jour-0 .jour")?.textContent = this.weatherThreeDaysData.forecast[0].day;
+        this.document.querySelector("#jour-0 .icone-meteo")?.textContent = `<img src="./assets/images/ensoleille.png"></img>`;
+        this.document.querySelector("#jour-0 .libelle-meteo")?.textContent = "Eclaircies"
     }
 
     public buildTemperatures(): void {
-        const container = this.document.getElementById("temperature_jour");
+        this.document.getElementById("max").textContent = this.weatherData.forecast.tmax;
+        this.document.getElementById("min").textContent = this.weatherData.forecast.tmin
+        this.document.getElementById("moy").textContent = (this.weatherData.forecast.tmax+this.weatherData.forecast.tmin)/2
     }
 
     public buildEphemeride(): void {

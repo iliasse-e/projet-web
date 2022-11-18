@@ -10,50 +10,71 @@ h1, footer {
     color: white;
 }
 
+.cadre-info {
+    background-color: #bfecc6;
+}
+
 /** Header **/
 
 header {
     display: flex;
     justify-content: center;
+    row-gap: 20px;
 }
 
 header img {
     width: 150px;
 }
 
-section,
-aside, table {
-    background-color: #bfecc6;
-}
+
 
 h1 {
     font-family: 'Satisfy', cursive;
     text-align: center;
     font-size: 3em;
+    margin-left: 60px;
+}
+
+/**
+* Main
+**/
+
+main {
+    margin: 20px 0;
 }
 
 /**
 * Cadre container
 **/
 
-#cadre-container {}
+#cadre-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 33%;
+}
 
-section {
+#cadre-container > * {
     width: 150%;
 
 }
 
 /*section tableau*/
 
-table {
+#meteo_semaine {
     border-spacing: 1px;
     border-collapse: collapse;
 }
-td {
-    padding: 5px;
-    border: 1px solid black;
+
+#meteo_semaine .table-row {
+    display: flex;
+    align-items: center;
 }
 
+#meteo_semaine > div {
+    padding: 5px;
+    border: 1px solid rgb(46, 46, 46);
+}
 
 main,
 footer {
@@ -69,22 +90,13 @@ footer {
 **/
 
 aside {
-    vertical-align: middle;
     text-align: center;
-    width: 20%;
+    padding: 5px;
 }
 
-article {
-    margin: 17% auto;
-}
-
-article * {
-    margin: 0 0 0px 0;
-    padding: 0;
-}
-
-article h2 {
+aside h2 {
     font-size: 2em;
+    margin: 0;
 }
 
 #min {
@@ -99,6 +111,11 @@ article h2 {
     background-color: #FFFF00;
 }
 
+figure > div {
+    display: flex;
+    justify-content: center;
+}
+
 .cercle {
     width: 70px;
     height: 70px;
@@ -106,4 +123,5 @@ article h2 {
     border-radius: 50%;
     font-size: 1, 5rem;
     text-align: center;
+    margin: 0;
 }
