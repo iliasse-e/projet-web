@@ -1,4 +1,4 @@
-const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const weekday = ["Dimanche","Lundi ","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];
 
 export const getWeekday = (dayNb) => {
     if (dayNb < 7) {

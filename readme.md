@@ -8,7 +8,7 @@ mais surtout à créer des services JavaScript et constructeurs de vue respectan
 Le service a été façonné en fonction des besoins client.
 chaque méthode get du service correspond à une méthode HTTP Get et visera à répondre à un besoin fonctionnel spécifique.
 
-Classe : HttpWeatherRequest
+Classe : WeatherService
 
 ## Le constructeur de vues ##
 
