@@ -1,5 +1,5 @@
 import { getWeekday } from "../data/days-of-week.js";
-import { weatherCode as code, getWeather } from "../data/weather-types.js";
+import { getWeather } from "../data/weather-types.js";
 
 export class ViewBuilder {
     weatherData;
@@ -21,18 +21,18 @@ export class ViewBuilder {
             this.document.getElementById('meteo_semaine').innerHTML = `
             <div id="jour-0" class="table-row">
                     <div class="jour">${getWeekday(today + this.weatherThreeDaysData.forecast[0].day)}</div>
-                    <div class="icone-meteo"><img src="./assets/images/ensoleille.png"></div>
-                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[0].weather)}</div>
+                    <div class="icone-meteo"><img src=${getWeather(this.weatherThreeDaysData.forecast[0].weather).image}></div>
+                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[0].weather).value}</div>
                 </div>
                 <div id="jour-1" class="table-row">
                     <div class="jour">${getWeekday(today + this.weatherThreeDaysData.forecast[1].day)}</div>
-                    <div class="icone-meteo"><img src="./assets/images/ensoleille.png"></div>
-                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[1].weather)}</div>
+                    <div class="icone-meteo"><img src=${getWeather(this.weatherThreeDaysData.forecast[1].weather).image}></div>
+                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[1].weather).value}</div>
                 </div>
                 <div id="jour-2" class="table-row">
                     <div class="jour">${getWeekday(today + this.weatherThreeDaysData.forecast[2].day)}</div>
-                    <div class="icone-meteo"><img src="./assets/images/ensoleille.png"></div>
-                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[2].weather)}</div>
+                    <div class="icone-meteo"><img src=${getWeather(this.weatherThreeDaysData.forecast[2].weather).image}></div>
+                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[2].weather).value}</div>
                 </div>
             `
     }

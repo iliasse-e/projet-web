@@ -1,20 +1,12 @@
-export const weatherCode = {
-  0: "Nuageux",
-  1: "Pluvieux",
-  2: "Eclaircies",
-  3: "Ensoleillé",
-  4: "Ensoleillé",
-};
-
 export const getWeather = (code) => {
   switch (code) {
     case 0:
-      return "Nuageux";
+      return {value:"Nuageux", image: "assets/images/eclaircies.png"};
     case 1:
-      return "Pluvieux";
+      return {value:"Pluvieux", image: "assets/images/eclaircies.png"};
     case 2:
-      return "Eclaircies";
+      return {value:"Eclaircies", image: "assets/images/eclaircies.png"};
     default:
-      return "Ensoleillé";
+      return {value:"Ensoleillé", image: "assets/images/ensoleille.png"};
   }
 };
