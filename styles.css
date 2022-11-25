@@ -23,7 +23,8 @@ header {
 }
 
 header img {
-    width: 150px;
+    width: 120px;
+    height: 120px;
 }
 
 
@@ -32,12 +33,19 @@ h1 {
     font-family: 'Satisfy', cursive;
     text-align: center;
     font-size: 3em;
+    font-weight: 500;
     margin-left: 60px;
 }
 
 /**
 * Main
 **/
+
+main,
+footer {
+    display: flex;
+    justify-content: space-around;
+}
 
 main {
     margin: 20px 0;
@@ -56,7 +64,10 @@ main {
 
 #cadre-container > * {
     width: 150%;
+}
 
+#ephemeride-data {
+    line-height: 7px;
 }
 
 /*section tableau*/
@@ -72,17 +83,19 @@ main {
 }
 
 #meteo_semaine > div {
-    padding: 5px;
     border: 1px solid rgb(46, 46, 46);
 }
 
-main,
-footer {
-    display: flex;
-    justify-content: space-around;
+#meteo_semaine > div > * {
+    width: 33%;
+    text-align: center;
 }
 
-
+.icone-meteo {
+    border-right: 1px solid rgb(46, 46, 46);
+    border-left: 1px solid rgb(46, 46, 46);
+    height: 100%;
+}
 
 
 /**
@@ -124,4 +137,39 @@ figure > div {
     font-size: 1, 5rem;
     text-align: center;
     margin: 0;
+}
+
+/** Media queries **/
+
+@media (max-width: 800px) {
+    body {
+        padding: 30px;
+        font-size: larger;
+    }
+    header {
+        flex-direction: column;
+    }
+    header div {
+        display: flex;
+        justify-content: center;
+    }
+    h1 {
+        margin: 0;
+    }
+    main {
+        display: block;
+        
+    }
+    #cadre-container {
+        width: 66.8%;
+    }
+    main > *, #cadre-container > *  {
+        margin-top: 40px;
+    }
+    #saints-du-jour {
+        line-height: 18px;
+    }
+    footer {
+        flex-direction: column;
+    }
 }

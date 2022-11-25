@@ -1,6 +1,10 @@
 import { getWeekday } from "../data/days-of-week.js";
-import { getWeather } from "../data/weather-types.js";
 
+/**
+ * Permet de construire la vue de la page station météo
+ * en y injectant les données reçues des différentes API
+ * Cette classe est donc dépendante de la classe weatherService,
+ */
 export class ViewBuilder {
     weatherData;
     ephemerideData;
@@ -16,33 +20,36 @@ export class ViewBuilder {
         this.document = document;
     }
 
+    // construit la table météo sur 3 jours
     buildTable() {
             const today = new Date().getDay();
             this.document.getElementById('meteo_semaine').innerHTML = `
             <div id="jour-0" class="table-row">
-                    <div class="jour">${getWeekday(today + this.weatherThreeDaysData.forecast[0].day)}</div>
-                    <div class="icone-meteo"><img src=${getWeather(this.weatherThreeDaysData.forecast[0].weather).image}></div>
-                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[0].weather).value}</div>
+                    <div class="jour">${getWeekday(today)}</div>
+                    <div class="icone-meteo"><img src=${this.weatherThreeDaysData[0].image}></div>
+                    <div class="libelle-meteo">${this.weatherThreeDaysData[0].libelle}</div>
                 </div>
                 <div id="jour-1" class="table-row">
-                    <div class="jour">${getWeekday(today + this.weatherThreeDaysData.forecast[1].day)}</div>
-                    <div class="icone-meteo"><img src=${getWeather(this.weatherThreeDaysData.forecast[1].weather).image}></div>
-                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[1].weather).value}</div>
+                <div class="jour">${getWeekday(today+1)}</div>
+                <div class="icone-meteo"><img src=${this.weatherThreeDaysData[1].image}></div>
+                <div class="libelle-meteo">${this.weatherThreeDaysData[1].libelle}</div>
                 </div>
                 <div id="jour-2" class="table-row">
-                    <div class="jour">${getWeekday(today + this.weatherThreeDaysData.forecast[2].day)}</div>
-                    <div class="icone-meteo"><img src=${getWeather(this.weatherThreeDaysData.forecast[2].weather).image}></div>
-                    <div class="libelle-meteo">${getWeather(this.weatherThreeDaysData.forecast[2].weather).value}</div>
+                <div class="jour">${getWeekday(today+2)}</div>
+                <div class="icone-meteo"><img src=${this.weatherThreeDaysData[2].image}></div>
+                <div class="libelle-meteo">${this.weatherThreeDaysData[2].libelle}</div>
                 </div>
             `
     }
 
+    // construit la vue aside des température max, moy, min
     buildTemperatures() {
         this.document.getElementById("max").textContent = this.weatherData.forecast.tmax;
         this.document.getElementById("min").textContent = this.weatherData.forecast.tmin
         this.document.getElementById("moy").textContent = (this.weatherData.forecast.tmax+this.weatherData.forecast.tmin)/2
     }
 
+    // construit la vue ephéméride
     buildEphemeride() {
         const date = new Date;
         console.log(this.weatherData, this.ephemerideData, this.document);

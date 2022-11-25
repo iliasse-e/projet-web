@@ -19,7 +19,7 @@ Dépendant aux services (couplage fort), une injection de dépendance a été n�
 Classe : ViewBuilder
 
 ## les data ##
-Un dossier data, a pour but de regrouper des données et méthodes visant à formater les données brutes reçues par l'API
+Un dossier data, qui a pour but de regrouper des données et méthodes visant à formater les données brutes reçues de l'API
 
 ## Le TypeScript ##
 
